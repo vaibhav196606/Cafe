@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa; /* Bootstrap background color */
+            color: #495057; /* Bootstrap text color */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff; /* Bootstrap primary color */
+            color: #ffffff; /* Bootstrap light text color */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        h1, h2, p {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #ffffff; /* Bootstrap card background color */
+            padding: 20px;
+            border: 1px solid #dcdcdc; /* Bootstrap card border color */
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        input {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff; /* Bootstrap primary color */
+            color: #ffffff; /* Bootstrap light text color */
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Bootstrap primary hover color */
+        }
+
+        footer {
+            background-color: #007bff; /* Bootstrap primary color */
+            color: #ffffff; /* Bootstrap light text color */
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <h1>My Cafe App</h1>
+    </header>
+
+    <!-- Content -->
+    <div class="container">
+        <h1>Review Page</h1>
+
+        <h2>Cafe Details</h2>
+        <p><b>Name: </b> <%= data.name %> </p>
+        <p><b>Phone: </b> <%= data.phone %> </p>
+        <p><b>Total Reviews: </b> <%= data.reviewCount %></p>
+
+        <form action="/rate/<%= data.id %>" method="post" class="mx-auto"> 
+            <div class="form-group">
+                <label for="rating">Rate it from 1 to 5:</label>
+                <input type="number" id="rating" name="rating" min="1" max="5" required class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit Rating</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 My Cafe App
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
